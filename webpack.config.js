@@ -24,10 +24,10 @@ const base = {
                 presets: [['@babel/preset-env', {targets: {browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8']}}]]
             }
         },
-        {
-            test: /\.mp3$/,
-            loader: 'file-loader'
-        }]
+            {
+                test: /\.mp3$/,
+                loader: 'file-loader'
+            }]
     },
     optimization: {
         minimizer: [
@@ -44,8 +44,8 @@ module.exports = [
     defaultsDeep({}, base, {
         target: 'web',
         entry: {
-            'scratch-vm': './src/index.js',
-            'scratch-vm.min': './src/index.js'
+            'oeg-stem-vm': './src/index.js',
+            'oeg-stem-vm.min': './src/index.js'
         },
         output: {
             libraryTarget: 'umd',
@@ -64,7 +64,7 @@ module.exports = [
     defaultsDeep({}, base, {
         target: 'node',
         entry: {
-            'scratch-vm': './src/index.js'
+            'oeg-stem-vm': './src/index.js'
         },
         output: {
             libraryTarget: 'commonjs2',
@@ -108,7 +108,7 @@ module.exports = [
                     loader: 'script-loader'
                 },
                 {
-                    test: require.resolve('scratch-blocks/dist/vertical.js'),
+                    test: require.resolve('oeg-stem-blocks/dist/vertical.js'),
                     loader: 'expose-loader?Blockly'
                 },
                 {
@@ -130,7 +130,7 @@ module.exports = [
         },
         plugins: base.plugins.concat([
             new CopyWebpackPlugin([{
-                from: 'node_modules/scratch-blocks/media',
+                from: 'node_modules/oeg-stem-blocks/media',
                 to: 'media'
             }, {
                 from: 'node_modules/scratch-storage/dist/web'
